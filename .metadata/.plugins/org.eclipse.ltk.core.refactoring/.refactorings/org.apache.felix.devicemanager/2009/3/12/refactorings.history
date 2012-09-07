@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;org.apache.felix.devicemanager/src/test&apos; to &apos;test1&apos;" description="Rename resource &apos;test&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/test" name="test1" stamp="1237237119746" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;org.apache.felix.devicemanager/src/test1&apos; to &apos;test&apos;" description="Rename resource &apos;test1&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/test1" name="test" stamp="1237238698025" updateReferences="true"/>
+</session>

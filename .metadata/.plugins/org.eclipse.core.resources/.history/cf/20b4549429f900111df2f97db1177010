@@ -1,0 +1,44 @@
+package nl.dennisg.file.driver;
+
+import java.io.File;
+
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.device.Constants;
+import org.osgi.service.device.Device;
+import org.osgi.service.device.Driver;
+import org.osgi.service.log.LogService;
+
+public class VerySpecificFileDriver implements Driver {
+
+	private final static int MATCH = 20;
+	
+	private volatile LogService m_log;
+	
+	private final File m_file;
+	
+	public VerySpecificFileDriver(String f) {
+		m_file = new File(f);
+	}
+	
+	public int match(ServiceReference reference) throws Exception {
+		//is required to be there...
+		if (!"file".equals(reference.getProperty(Constants.DEVICE_CATEGORY))) {
+			return Device.MATCH_NONE;
+		}
+		if (!m_file.getPath().equals(reference.getProperty(Constants.DEVICE_SERIAL))) {
+			return Device.MATCH_NONE;
+		}
+		
+		m_log.log(LogService.LOG_DEBUG, String.format("VerySpecificFileDriver(%s) returning match=%s", m_file, MATCH));
+		
+		//any higher match value than 10
+		return MATCH;
+	};
+	
+	@Override
+	public String attach(ServiceReference reference) throws Exception {
+		m_log.log(LogService.LOG_DEBUG, String.format("VerySpecificFileDriver(%s).attach()", m_file, MATCH));
+		return null;
+	}
+	
+}

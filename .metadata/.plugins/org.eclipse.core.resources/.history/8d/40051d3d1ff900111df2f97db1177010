@@ -1,0 +1,26 @@
+package nl.dennisg.base.driver;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import org.osgi.service.log.LogService;
+
+public class BaseDriver {
+
+	
+	private volatile LogService m_log;
+	
+	private ExecutorService m_executor;
+	
+	
+	private void start() {
+		m_executor = Executors.newSingleThreadExecutor();
+
+	}
+	
+	
+	private void stop() {
+		// TODO Auto-generated method stub
+
+	}
+}

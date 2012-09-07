@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.paste,1238445913959
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1238445916864
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1238445921972
+executed,command,org.eclipse.ui.workbench.texteditor,3.4.1.r341_v20080827-1100,org.eclipse.ui.edit.text.select.lineEnd,1238445922650
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.text.contentAssist.proposals,1238445929609
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1238445935697
+executed,command,org.eclipse.jdt.ui,3.4.1.r341_v20080827-1100,org.eclipse.jdt.ui.edit.text.java.organize.imports,1238445944003
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1238445944395
+activated,editor,org.eclipse.jdt.ui,3.4.1.r341_v20080827-1100,org.eclipse.jdt.ui.CompilationUnitEditor,1238445952062
+activated,editor,org.eclipse.jdt.ui,3.4.1.r341_v20080827-1100,org.eclipse.jdt.ui.CompilationUnitEditor,1238445958711
+executed,command,org.eclipse.ui.workbench.texteditor,3.4.1.r341_v20080827-1100,org.eclipse.ui.edit.text.select.lineEnd,1238445962801
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.text.contentAssist.proposals,1238445966037
+executed,command,org.eclipse.ui.workbench.texteditor,3.4.1.r341_v20080827-1100,org.eclipse.ui.edit.text.select.lineEnd,1238445972984
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1238445973759
+deactivated,workbench,org.eclipse.ui.workbench,3.4.1.M20080827-0800a,,1238445977183
+activated,workbench,org.eclipse.ui.workbench,3.4.1.M20080827-0800a,,1238445979015
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1238445991551
+executed,command,org.eclipse.ui.workbench.texteditor,3.4.1.r341_v20080827-1100,org.eclipse.ui.edit.text.select.lineEnd,1238445996353
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.text.contentAssist.proposals,1238446005664
+deactivated,workbench,org.eclipse.ui.workbench,3.4.1.M20080827-0800a,,1238446017378
+no handler,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.text.contentAssist.proposals,1238446023167
+activated,workbench,org.eclipse.ui.workbench,3.4.1.M20080827-0800a,,1238446024411
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.text.contentAssist.proposals,1238446025839
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.text.contentAssist.proposals,1238446029131
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1238446031205

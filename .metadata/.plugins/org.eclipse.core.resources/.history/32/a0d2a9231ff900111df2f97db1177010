@@ -1,0 +1,20 @@
+package nl.dennisg.base.driver;
+
+import org.osgi.service.log.LogService;
+
+public class BaseDriver {
+
+	
+	private LogService m_log;
+	
+	private void start() {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	private void stop() {
+		// TODO Auto-generated method stub
+
+	}
+}

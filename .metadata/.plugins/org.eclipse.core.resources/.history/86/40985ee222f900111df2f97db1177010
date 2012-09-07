@@ -1,0 +1,2 @@
+Private-Package: nl.dennisg.log
+Bundle-Activator: nl.dennisg.log.Activator

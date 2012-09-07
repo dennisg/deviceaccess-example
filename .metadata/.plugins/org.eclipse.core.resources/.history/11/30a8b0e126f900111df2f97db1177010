@@ -1,0 +1,31 @@
+package nl.dennisg.file.driver;
+
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.device.Constants;
+import org.osgi.service.device.Device;
+import org.osgi.service.device.Driver;
+import org.osgi.service.log.LogService;
+
+public class FileDriver implements Driver {
+
+	private volatile LogService m_log;
+	
+	private final static int MATCH = 10;
+	
+	public int match(ServiceReference reference) throws Exception {
+		//is required to be there...
+		if (!"file".equals(reference.getProperty(Constants.DEVICE_CATEGORY))) {
+			return Device.MATCH_NONE;
+		}
+	
+		m_log.log(LogService.LOG_DEBUG, String.format("Driver returnin match=%s", MATCH));
+		return MATCH;
+	};
+	
+	@Override
+	public String attach(ServiceReference reference) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

@@ -1,0 +1,6 @@
+-sub: *.bnd
+-buildpath: osgi.cmpn,\
+	osgi.core,\
+	org.apache.felix.dependencymanager
+-runrequire: bundle:(symbolicname=osgi.cmpn)
+-runfw: org.apache.felix.framework;version='[3.0.4,3.0.4]'

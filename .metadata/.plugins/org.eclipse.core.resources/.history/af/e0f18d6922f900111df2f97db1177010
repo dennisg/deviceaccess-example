@@ -1,0 +1,29 @@
+package nl.dennisg.log;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.osgi.framework.BundleContext;
+import org.osgi.service.log.LogEntry;
+import org.osgi.service.log.LogListener;
+import org.osgi.service.log.LogReaderService;
+
+public class Activator extends DependencyActivatorBase implements LogListener {
+
+	private volatile LogReaderService m_log;
+	
+	@Override
+	public void init(BundleContext context, DependencyManager manager) throws Exception {
+	}
+	
+	@Override
+	public void destroy(BundleContext context, DependencyManager manager) throws Exception {}
+	
+	@Override
+	public void logged(LogEntry entry) {
+		System.out.println(String.format("%s - %s", Level.values()[entry.getLevel()], entry.getMessage()));
+	}
+	
+	private enum Level {
+		INFO, 
+	}
+}

@@ -1,0 +1,6 @@
+SdkRegistrants_1314972080261=com.google.appengine.eclipse.sdkbundle_1.5.2.r36v201107211953,com.google.gwt.eclipse.sdkbundle_2.3.0.r36v201105191508
+SdkRegistrants_1342948053230=com.google.appengine.eclipse.sdkbundle_1.7.0,com.google.gwt.eclipse.sdkbundle_2.4.0.v201206290132-rel-r42
+SdkRegistrants_null=com.google.appengine.eclipse.sdkbundle_1.2.1.v200905131143,com.google.gwt.eclipse.sdkbundle.macosx_1.6.4.v200904062334,com.google.appengine.eclipse.sdkbundle.1.4.2_1.4.2.v201102111811,com.google.gwt.eclipse.sdkbundle.2.2.0_2.2.0.v201102111811
+addedNewWizardActions1.2_org.eclipse.jdt.ui.JavaPerspective=com.google.gdt.eclipse.suite.wizards.newProjectWizard|com.google.gwt.eclipse.core.newModuleWizard|com.google.gwt.eclipse.core.newHostPageWizard|com.google.gwt.eclipse.core.newEntryPointWizard|com.google.gwt.eclipse.core.newClientBundleWizard|com.google.gwt.eclipse.core.newUiBinderWizard
+addedNewWizardActionsorg.eclipse.jdt.ui.JavaPerspective=true
+eclipse.preferences.version=1

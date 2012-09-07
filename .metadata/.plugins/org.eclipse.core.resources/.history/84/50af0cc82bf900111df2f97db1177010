@@ -1,0 +1,49 @@
+package nl.dennisg.locator.file;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.jar.JarFile;
+
+import org.osgi.service.device.DriverLocator;
+import org.osgi.service.log.LogService;
+
+public class FilebasedDriverLocator implements DriverLocator {
+
+	private final File m_root = new File("drivers");
+	private volatile LogService m_log;
+	
+	private Map<String, File> m_jars;
+	
+	@SuppressWarnings("unused")
+	private void start() {
+		m_root.mkdirs();
+		m_jars = new HashMap<String, File>();
+		m_log.log(LogService.LOG_DEBUG, "DriverLocator started");
+		
+		for (File jar : m_root.listFiles()) {
+			check(jar);
+		}
+	}
+	
+	
+	private void check(File f) {
+		JarFile jf = new JarFile(f);
+		jf.getManifest().getMainAttributes().getValue("Driver-Ids");
+	}
+	
+	@Override
+	public String[] findDrivers(Dictionary props) {
+		return null;
+	}
+	
+	@Override
+	public InputStream loadDriver(String id) throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

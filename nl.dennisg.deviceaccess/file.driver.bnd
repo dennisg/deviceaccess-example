@@ -1,0 +1,3 @@
+Private-Package: nl.dennisg.file.driver
+Bundle-Activator: nl.dennisg.file.driver.Activator
+Bundle-Version: 1.0.0

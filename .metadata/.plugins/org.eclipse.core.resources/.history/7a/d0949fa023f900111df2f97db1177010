@@ -1,0 +1,16 @@
+-sub: *.bnd
+-buildpath: osgi.core,\
+	osgi.cmpn,\
+	org.apache.felix.dependencymanager
+-runrequire: bundle:(symbolicname=osgi.cmpn),\
+	bundle:(symbolicname=nl.dennisg.deviceaccess.base.driver),\
+	bundle:(symbolicname=org.apache.felix.das),\
+	bundle:(symbolicname=org.apache.felix.dependencymanager),\
+	bundle:(symbolicname=org.apache.felix.log),\
+	bundle:(symbolicname=nl.dennisg.deviceaccess.log),\
+	bundle:(symbolicname=nl.dennisg.deviceaccess.base.driver)
+-runfw: org.apache.felix.framework;version='[4.0.1,4.0.1]'
+-runbundles: org.apache.felix.das;resolution=file:/Users/dennisg/workspace/felix/data/cnf/repo/org.apache.felix.das/org.apache.felix.das-0.9.0.jar;version='[0.9.0,0.9.1)',\
+	org.apache.felix.dependencymanager;resolution=file:/Users/dennisg/workspace/felix/data/cnf/repo/org.apache.felix.dependencymanager/org.apache.felix.dependencymanager-3.0.0.jar;version='[3.0.0,3.0.1)',\
+	osgi.cmpn;resolution=http://bundles.bndtools.org.s3.amazonaws.com/osgi.cmpn/osgi.cmpn-4.2.1.jar;version='[4.2.1,4.2.2)',\
+	org.apache.felix.log;resolution=file:/Users/dennisg/workspace/felix/data/cnf/repo/org.apache.felix.log/org.apache.felix.log-1.0.1.jar;version='[1.0.1,1.0.2)'

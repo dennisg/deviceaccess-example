@@ -1,0 +1,37 @@
+package nl.dennisg.file.driver;
+
+import java.util.Properties;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.service.device.Driver;
+import org.osgi.service.log.LogService;
+
+/**
+ * This is the OSGi {@link BundleActivator} for the base driver
+ * 
+ * This 
+ * @author dennisg
+ *
+ */
+public class Activator extends DependencyActivatorBase {
+
+	
+	@Override
+	public void init(BundleContext context, DependencyManager manager) throws Exception {
+		
+		@SuppressWarnings("serial")
+		Properties p = new Properties() {{
+			put("", "");
+		}};
+		manager.add(createComponent().setImplementation(FileDriver.class).setInterface(Driver.class.getName(), p)
+			.add(createServiceDependency().setService(LogService.class).setRequired(true))
+		);
+		
+	}
+	
+	@Override
+	public void destroy(BundleContext context, DependencyManager manager) throws Exception {}
+}

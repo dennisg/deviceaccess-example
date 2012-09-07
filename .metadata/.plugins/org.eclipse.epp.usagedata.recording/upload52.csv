@@ -1,0 +1,11 @@
+what,kind,bundleId,bundleVersion,description,time
+stopped,bundle,org.eclipse.core.filebuffers,3.4.0.v20080603-2000,org.eclipse.core.filebuffers,1237276149605
+stopped,bundle,com.mountainminds.eclemma.core,1.3.2,com.mountainminds.eclemma.core,1237276149645
+stopped,bundle,org.eclipse.jdt.launching,3.4.1.v20080729_r341,org.eclipse.jdt.launching,1237276149645
+stopped,bundle,org.eclipse.jdt.debug,3.4.0.v20080604,org.eclipse.jdt.debug,1237276149645
+stopped,bundle,org.eclipse.debug.core,3.4.0.v20080612,org.eclipse.debug.core,1237276149645
+stopped,bundle,org.eclipse.jdt.apt.core,3.3.101.R34x_v20080902-1220,org.eclipse.jdt.apt.core,1237276149645
+stopped,bundle,org.eclipse.jdt.core,3.4.2.v_883_R34x,org.eclipse.jdt.core,1237276150099
+stopped,bundle,org.eclipse.ui.console,3.3.0.v20080529-1300,org.eclipse.ui.console,1237276150099
+stopped,bundle,org.eclipse.wst.common.snippets,1.1.200.v200805140415,org.eclipse.wst.common.snippets,1237276150124
+stopped,bundle,org.eclipse.wst.validation.ui,1.2.1.v200807292117,org.eclipse.wst.validation.ui,1237276150141

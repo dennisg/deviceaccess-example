@@ -1,0 +1,305 @@
+package org.apache.felix.das.exam;
+
+import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.CoreOptions.options;
+import static org.ops4j.pax.exam.CoreOptions.provision;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import junit.framework.Assert;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.ops4j.pax.exam.Inject;
+import org.ops4j.pax.exam.Option;
+import org.ops4j.pax.exam.junit.Configuration;
+import org.ops4j.pax.exam.junit.JUnit4TestRunner;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+import org.osgi.framework.ServiceEvent;
+import org.osgi.framework.ServiceListener;
+import org.osgi.service.device.Device;
+import org.osgi.service.device.DriverSelector;
+
+
+
+/**
+ *
+ */
+@RunWith( JUnit4TestRunner.class )
+public class DeviceRegistrationTest {
+
+	@Inject
+	private BundleContext m_context;
+	
+    @Configuration
+    public static Option[] configuration() {
+    	
+        return options(
+            provision(
+        		mavenBundle().groupId( "org.osgi" ).artifactId( "org.osgi.compendium" ),
+        		mavenBundle().groupId( "org.apache.felix" ).artifactId( "org.apache.felix.dependencymanager" ),
+        		mavenBundle().groupId( "org.apache.felix" ).artifactId( "org.apache.felix.devicemanager" )
+            )
+        );
+    }
+    
+
+    @Test @Ignore
+    public void simpliestTest() {
+        System.out.println( "************ Hello from OSGi ************" );
+        
+    }
+
+    /**
+     * There is no driver installed for the device being registered.
+     * Since this service is registered as a <code>Device</code>, we expect
+     * <code>Device.noDriverFound()</code> to be called.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void deviceRegistrationNoDriverFound() throws Exception {
+    	Dummy1 device = new Dummy1();
+    	device.start(m_context);
+        Assert.assertTrue("'no driver found' not executed", device.await());
+    }
+    
+    /**
+     * There is no driver installed for the object being registered.
+     * Since this service is NOT registered as a <code>Device</code>, we expect
+     * <code>Device.noDriverFound()</code> NOT to be called.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void objectRegistrationNoDriverFound() throws Exception {
+    	Dummy1 device = new Dummy1(Object.class);
+    	device.start(m_context);
+        Assert.assertFalse("'no driver found' got executed!", device.await());
+    }
+    
+    /**
+     * We first register a driver for the device.
+     * This means that eventually the Driver.attach() is called. 
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void driverRegistrationDriverFound() throws Exception {
+    	
+    	Dummy1Driver driver = new Dummy1Driver();
+    	driver.start(m_context);
+    	
+    	
+    	Dummy1 device = new Dummy1(Object.class);
+    	device.start(m_context);
+        Assert.assertTrue("'Driver.attach()' not executed!", driver.await());
+    }    
+    
+    /**
+     * We first register a driver for the device.
+     * This means that eventually the Driver.attach() is called. 
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void objectRegistrationDriverFound() throws Exception {
+    	
+    	Dummy1Driver driver = new Dummy1Driver();
+    	driver.start(m_context);
+    	
+    	
+    	Dummy1 device = new Dummy1(Object.class);
+    	device.start(m_context);
+        Assert.assertTrue("'Driver.attach()' not executed!", driver.await());
+    }    
+    
+    
+    
+    /**
+     * we pre-register two drivers that match the device.
+     * 
+     * Based on the match (an int) we expect the highest to 'win'.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void multipleDriversBestMatchFound() throws Exception {
+    	
+    	Dummy1Driver driver1 = new Dummy1Driver(10);
+    	driver1.start(m_context);
+    	
+    	
+    	Dummy1Driver driver2 = new Dummy1Driver(20);
+    	driver2.start(m_context);
+    	
+    	Dummy1 device = new Dummy1(Object.class);
+    	device.start(m_context);
+        Assert.assertTrue("'Correct Driver.attach()' not executed!", driver2.await());
+        Assert.assertFalse("'Wrong Driver.attach()' got executed!", driver1.await());
+    }   
+    
+    
+    /**
+     * we pre-register three drivers that match the device.
+     * 
+     * based on referral, we expect all drivers to be visited.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void multipleDriversReferral() throws Exception {
+    	
+    	Dummy1Driver driver1 = new Dummy1Driver(10, "dummy1.driver-1.0", "dummy1.driver-1.1");
+    	driver1.start(m_context);
+    	
+    	
+    	Dummy1Driver driver2 = new Dummy1Driver(5, "dummy1.driver-1.1", "dummy1.driver-2.0");
+    	driver2.start(m_context);
+    	
+    	Dummy1Driver driver3 = new Dummy1Driver(5, "dummy1.driver-2.0", "dummy1.driver-2.1");
+    	driver3.start(m_context);
+    	
+    	Dummy1 device = new Dummy1(Object.class);
+    	device.start(m_context);
+    	
+        Assert.assertTrue("'Driver1.attach()' not executed!", driver1.await());
+        Assert.assertTrue("'Driver2.attach()' not executed!", driver2.await());
+        Assert.assertTrue("'Driver3.attach()' not executed!", driver3.await());
+    }    
+    
+    /**
+     * we pre-register three drivers that match the device.
+     * 
+     * based on referral, we expect all drivers to be visited.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void multipleDriversReferralFinallyNoDriverFound() throws Exception {
+    	
+    	Dummy1Driver driver1 = new Dummy1Driver(10, "dummy1.driver-1.0", "dummy1.driver-1.1");
+    	driver1.start(m_context);
+    	
+    	Dummy1Driver driver2 = new Dummy1Driver(5, "dummy1.driver-1.1", "dummy1.driver-2.0");
+    	driver2.start(m_context);
+    	
+    	Dummy1Driver driver3 = new Dummy1Driver(5, "dummy1.driver-2.0", "dummy1.driver-2.1");
+    	driver3.start(m_context);
+    	
+    	Dummy1 device = new Dummy1(Device.class);
+    	device.start(m_context);
+    	
+        Assert.assertTrue("'Driver1.attach()' not executed!", driver1.await());
+        Assert.assertTrue("'Driver2.attach()' not executed!", driver2.await());
+        Assert.assertTrue("'Driver3.attach()' not executed!", driver3.await());
+        Assert.assertTrue("'Device.noDriverFound()' not executed!", device.await());
+    }     
+    
+    /**
+     * we pre-register three drivers that match the device.
+     * 
+     * based on referral, we expect all drivers to be visited.
+     * 
+     * Eventually, the noDriverFound should NOT be executed, since the last driver
+     * does not refer to another driver.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void multipleDriversReferralFinallyDriverRegistersAService() throws Exception {
+    	
+    	Dummy1Driver driver1 = new Dummy1Driver(10, "dummy1.driver-1.0", "dummy1.driver-1.1");
+    	driver1.start(m_context);
+    	
+    	Dummy1Driver driver2 = new Dummy1Driver(5, "dummy1.driver-1.1", "dummy1.driver-2.0");
+    	driver2.start(m_context);
+    	
+    	Dummy1Driver driver3 = new Dummy1Driver(5, "dummy1.driver-2.0", null);
+    	driver3.start(m_context);
+    	
+    	Dummy1 device = new Dummy1(Device.class);
+    	device.start(m_context);
+    	
+        Assert.assertTrue("'Driver1.attach()' not executed!", driver1.await());
+        Assert.assertTrue("'Driver2.attach()' not executed!", driver2.await());
+        Assert.assertTrue("'Driver3.attach()' not executed!", driver3.await());
+        Assert.assertFalse("'Device.noDriverFound()' got executed!", device.await());
+    }
+    
+    
+    /**
+     * when a driver selector is registered within the framework, let hime
+     * make the choice between drivers.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void driverSelectorIsAskedForBestMatch() throws Exception {
+    	
+    	Dummy1Driver driver1 = new Dummy1Driver(10, "dummy1.driver-1.0", "dummy1.driver-1.1");
+    	driver1.start(m_context);
+    	
+    	Dummy1Driver driver2 = new Dummy1Driver(5, "dummy1.driver-1.1", null);
+    	driver2.start(m_context);
+    	
+    	final CountDownLatch latch = new CountDownLatch(1);
+    	
+    	m_context.addServiceListener(new ServiceListener() {
+			@Override
+			public void serviceChanged(ServiceEvent event) {
+				if (event.getType() == ServiceEvent.REGISTERED) {
+					String objectClass = event.getServiceReference().getProperty(Constants.OBJECTCLASS).toString();
+					if (objectClass.equals(DriverSelector.class)) {
+						latch.countDown();
+					}
+				}
+			}
+		});
+    	
+    	Dummy1DriverSelector selector = new Dummy1DriverSelector(driver2);
+    	selector.start(m_context);
+    	
+    	
+    	Assert.assertTrue("DriverSelector did not appear", latch.await(4, TimeUnit.SECONDS));
+    	
+    	Dummy1 device = new Dummy1(Device.class);
+    	device.start(m_context);
+
+        Assert.assertFalse("'Driver1.attach()' got executed!", driver1.await());
+        Assert.assertTrue("'Driver2.attach()' not executed!", driver2.await());
+        Assert.assertFalse("'Device.noDriverFound()' got executed!", device.await());
+    	
+    }
+
+    /**
+     * when a driver selector is registered within the framework, let hime
+     * make the choice between drivers.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void driverSelectorIsAskedForBestMatchThrowsException() throws Exception {
+    	
+    	Dummy1Driver driver1 = new Dummy1Driver(10, "dummy1.driver-1.0", "dummy1.driver-1.1");
+    	driver1.start(m_context);
+    	
+    	Dummy1Driver driver2 = new Dummy1Driver(5, "dummy1.driver-1.1", "dummy1.driver-2.0");
+    	driver2.start(m_context);
+    	
+    	Dummy1DriverSelector selector = new Dummy1DriverSelector(null);
+    	selector.start(m_context);
+    	
+    	Dummy1 device = new Dummy1(Device.class);
+    	device.start(m_context);
+
+
+        Assert.assertTrue("'Driver2.attach()' not executed!", driver2.await());
+        Assert.assertTrue("'Device.noDriverFound()' not executed!", device.await());
+    	
+    }
+    
+}

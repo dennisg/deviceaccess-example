@@ -1,0 +1,2 @@
+Private-Package: nl.dennisg.specific.driver
+Bundle-Activator: nl.dennisg.specific.driver.Activator

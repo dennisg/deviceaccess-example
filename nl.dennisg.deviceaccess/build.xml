@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="project" default="build"> 
+	<import file="../cnf/build.xml"/>
+	
+	
+	
+    <target name="run" depends="init, clean, build"> 
+    	<java jar="../cnf/repo/biz.aQute.bnd/biz.aQute.bnd-1.51.1.jar" fork="true">
+    		<arg line="main.bndrun"/>
+    	</java>
+	</target>
+	
+</project>

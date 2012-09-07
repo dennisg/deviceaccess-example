@@ -1,0 +1,3 @@
+Private-Package: nl.dennisg.log
+Bundle-Activator: nl.dennisg.log.Activator
+Bundle-Version: 1.0.0

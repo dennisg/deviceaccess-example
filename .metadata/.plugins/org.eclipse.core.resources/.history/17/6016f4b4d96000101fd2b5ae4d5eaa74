@@ -1,0 +1,65 @@
+package org.apache.felix.das.exam;
+
+import java.util.Properties;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.device.Constants;
+import org.osgi.service.device.Driver;
+
+public class Dummy1Driver implements Driver, BundleActivator {
+
+	private final CountDownLatch m_latch = new CountDownLatch(1);
+	
+	private final int m_match;
+	private final String m_id;
+	private final String m_referral;
+	
+	
+	public Dummy1Driver() {
+		this(10, "dummy1.driver-1.0", null);
+	}
+	
+	public Dummy1Driver(int match) {
+		this(match, "dummy1.driver-1.0", null);
+	}
+	
+	public Dummy1Driver(int match, String id, String referral) {
+		m_match = match;
+		m_id = id;
+		m_referral = referral;
+	}
+	
+	@Override
+	public void start(BundleContext context) throws Exception {
+
+		Properties p = new Properties();
+
+		p.put(Constants.DRIVER_ID, m_id);
+		context.registerService(Driver.class.getName(), this, p);
+	}
+	
+	@Override
+	public void stop(BundleContext context) throws Exception {}
+	
+	@Override
+	public String attach(ServiceReference ref) throws Exception {
+		m_latch.countDown();
+		
+		return m_referral;
+	}
+
+	@Override
+	public int match(ServiceReference ref) throws Exception {
+		return m_match;
+	}
+	
+	
+	public boolean await() throws InterruptedException {
+		return m_latch.await(5, TimeUnit.SECONDS);
+	}
+
+}

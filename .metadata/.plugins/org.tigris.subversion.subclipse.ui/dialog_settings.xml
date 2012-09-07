@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
+			<item value="http://svn.apache.org/repos/asf/felix"/>
+			<item value="http://subversion.apache.org/asf/felix/trunk"/>
+		</list>
+	</section>
+</section>

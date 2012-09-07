@@ -1,0 +1,5 @@
+package nl.dennisg.log;
+
+public class Activator {
+
+}

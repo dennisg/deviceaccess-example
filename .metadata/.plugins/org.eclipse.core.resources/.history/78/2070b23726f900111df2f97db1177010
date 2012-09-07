@@ -1,0 +1,31 @@
+package nl.dennisg.file.driver;
+
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.device.Constants;
+import org.osgi.service.device.Device;
+import org.osgi.service.device.Driver;
+
+public class VerySpecificFileDriver implements Driver {
+
+	private final File m_file;
+	
+	public VerySpecificFileDriver(String f) {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public int match(ServiceReference reference) throws Exception {
+		//is required to be there...
+		if (!"file".equals(reference.getProperty(Constants.DEVICE_CATEGORY))) {
+			return Device.MATCH_NONE;
+		}
+		
+		return 10;
+	};
+	
+	@Override
+	public String attach(ServiceReference reference) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

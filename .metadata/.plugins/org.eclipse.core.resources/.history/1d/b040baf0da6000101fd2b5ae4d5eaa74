@@ -1,0 +1,5 @@
+package org.apache.felix.das.exam;
+
+public class Dummy1DriverSelector {
+
+}

@@ -1,0 +1,16 @@
+package nl.dennisg.base.driver;
+
+public class BaseDriver {
+
+	
+	private void start() {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	private void stop() {
+		// TODO Auto-generated method stub
+
+	}
+}

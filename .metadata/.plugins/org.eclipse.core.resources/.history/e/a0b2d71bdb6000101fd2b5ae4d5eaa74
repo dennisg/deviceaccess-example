@@ -1,0 +1,18 @@
+package org.apache.felix.das.exam;
+
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.device.DriverSelector;
+import org.osgi.service.device.Match;
+
+public class Dummy1DriverSelector implements DriverSelector {
+
+	public Dummy1DriverSelector() {
+	}
+	
+	
+	@Override
+	public int select(ServiceReference reference, Match[] matches) {
+		return 0;
+	}
+	
+}

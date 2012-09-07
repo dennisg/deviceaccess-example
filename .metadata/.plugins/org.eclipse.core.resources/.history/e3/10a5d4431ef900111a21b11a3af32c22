@@ -1,0 +1,5 @@
+-sub: *.bnd
+-buildpath: org.apache.felix.dependencymanager
+-runrequire: bundle:(symbolicname=osgi.cmpn),\
+	bundle:(symbolicname=nl.dennisg.deviceaccess.base.driver)
+-runfw: org.apache.felix.framework;version='[3.0.4,3.0.4]'

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='http://www.osgi.org/www/obr2html.xsl'?>
+<repository lastmodified="20120907224931.537" name="Bndtools Workspace Repository">
+  <resource id="nl.dennisg.deviceaccess.base.driver/1.0.0" presentationname="nl.dennisg.deviceaccess.base.driver" symbolicname="nl.dennisg.deviceaccess.base.driver" uri="file:/Users/dennisg/workspace/felix/data/nl.dennisg.deviceaccess/generated/nl.dennisg.deviceaccess.base.driver.jar" version="1.0.0"><category id="__WORKSPACE"/>
+    <size>
+      8895
+    </size>
+    <capability name="bundle">
+      <p n="manifestversion" v="2"/>
+      <p n="presentationname" v="nl.dennisg.deviceaccess.base.driver"/>
+      <p n="symbolicname" v="nl.dennisg.deviceaccess.base.driver"/>
+      <p n="version" t="version" v="1.0.0"/>
+    </capability>
+    <require extend="false" filter="(&amp;(package=org.apache.felix.dm)(version&gt;=3.0.0)(!(version&gt;=4.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.apache.felix.dm ;version=[3.0.0,4.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.framework ;version=[1.5.0,2.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.service.log ;version=[1.3.0,2.0.0)
+    </require>
+  </resource>
+  <resource id="nl.dennisg.deviceaccess.file.driver/1.0.0" presentationname="nl.dennisg.deviceaccess.file.driver" symbolicname="nl.dennisg.deviceaccess.file.driver" uri="file:/Users/dennisg/workspace/felix/data/nl.dennisg.deviceaccess/generated/nl.dennisg.deviceaccess.file.driver.jar" version="1.0.0"><category id="__WORKSPACE"/>
+    <size>
+      5885
+    </size>
+    <capability name="bundle">
+      <p n="manifestversion" v="2"/>
+      <p n="presentationname" v="nl.dennisg.deviceaccess.file.driver"/>
+      <p n="symbolicname" v="nl.dennisg.deviceaccess.file.driver"/>
+      <p n="version" t="version" v="1.0.0"/>
+    </capability>
+    <require extend="false" filter="(&amp;(package=org.apache.felix.dm)(version&gt;=3.0.0)(!(version&gt;=4.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.apache.felix.dm ;version=[3.0.0,4.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.framework ;version=[1.5.0,2.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.service.device)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.service.device ;version=[1.1.0,2.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.service.log ;version=[1.3.0,2.0.0)
+    </require>
+  </resource>
+  <resource id="nl.dennisg.deviceaccess.locator.file/1.0.0" presentationname="nl.dennisg.deviceaccess.locator.file" symbolicname="nl.dennisg.deviceaccess.locator.file" uri="file:/Users/dennisg/workspace/felix/data/nl.dennisg.deviceaccess/generated/nl.dennisg.deviceaccess.locator.file.jar" version="1.0.0"><category id="__WORKSPACE"/>
+    <size>
+      6937
+    </size>
+    <capability name="bundle">
+      <p n="manifestversion" v="2"/>
+      <p n="presentationname" v="nl.dennisg.deviceaccess.locator.file"/>
+      <p n="symbolicname" v="nl.dennisg.deviceaccess.locator.file"/>
+      <p n="version" t="version" v="1.0.0"/>
+    </capability>
+    <require extend="false" filter="(&amp;(package=org.apache.felix.dm)(version&gt;=3.0.0)(!(version&gt;=4.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.apache.felix.dm ;version=[3.0.0,4.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.framework ;version=[1.5.0,2.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.service.device)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.service.device ;version=[1.1.0,2.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.service.log ;version=[1.3.0,2.0.0)
+    </require>
+  </resource>
+  <resource id="nl.dennisg.deviceaccess.log/1.0.0" presentationname="nl.dennisg.deviceaccess.log" symbolicname="nl.dennisg.deviceaccess.log" uri="file:/Users/dennisg/workspace/felix/data/nl.dennisg.deviceaccess/generated/nl.dennisg.deviceaccess.log.jar" version="1.0.0"><category id="__WORKSPACE"/>
+    <size>
+      4573
+    </size>
+    <capability name="bundle">
+      <p n="manifestversion" v="2"/>
+      <p n="presentationname" v="nl.dennisg.deviceaccess.log"/>
+      <p n="symbolicname" v="nl.dennisg.deviceaccess.log"/>
+      <p n="version" t="version" v="1.0.0"/>
+    </capability>
+    <require extend="false" filter="(&amp;(package=org.apache.felix.dm)(version&gt;=3.0.0)(!(version&gt;=4.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.apache.felix.dm ;version=[3.0.0,4.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.framework ;version=[1.5.0,2.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.service.log ;version=[1.3.0,2.0.0)
+    </require>
+  </resource>
+  <resource id="nl.dennisg.deviceaccess.specific.driver/0.0.0" presentationname="nl.dennisg.deviceaccess.specific.driver" symbolicname="nl.dennisg.deviceaccess.specific.driver" uri="file:/Users/dennisg/workspace/felix/data/nl.dennisg.deviceaccess/generated/nl.dennisg.deviceaccess.specific.driver.jar" version="0.0.0"><category id="__WORKSPACE"/>
+    <size>
+      7057
+    </size>
+    <capability name="bundle">
+      <p n="manifestversion" v="2"/>
+      <p n="presentationname" v="nl.dennisg.deviceaccess.specific.driver"/>
+      <p n="symbolicname" v="nl.dennisg.deviceaccess.specific.driver"/>
+      <p n="version" t="version" v="0.0.0"/>
+    </capability>
+    <require extend="false" filter="(&amp;(package=org.apache.felix.dm)(version&gt;=3.0.0)(!(version&gt;=4.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.apache.felix.dm ;version=[3.0.0,4.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.framework ;version=[1.5.0,2.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.service.device)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.service.device ;version=[1.1.0,2.0.0)
+    </require>
+    <require extend="false" filter="(&amp;(package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))" multiple="false" name="package" optional="false">
+      Import package org.osgi.service.log ;version=[1.3.0,2.0.0)
+    </require>
+  </resource>
+</repository>
