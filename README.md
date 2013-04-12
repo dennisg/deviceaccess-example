@@ -17,5 +17,5 @@ In another terminal window touch any file in the 'devices' folder that was creat
 To show how special, more specific drivers, are matched, create a file called 'dennisg.txt'
 ( You can also try creating '&lt;your-nick&gt;.txt', who knows... ;-) ). In this case, another driver with a higher match is selected and attached...
 
-For more information you can contact me [at work](mailto:dennis.geurts@luminis.eu) or [privately](dennisg@dennisg.nl). 
+For more information you can contact me [at work](mailto:dennis.geurts@luminis.eu) or [privately](mailto:dennisg@dennisg.nl). 
 
